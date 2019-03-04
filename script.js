@@ -12,12 +12,13 @@ const items = document.querySelectorAll(".item");
 const movements = document.querySelector(".movements");
 const choices = ['rock', 'paper', 'scissors'];
 const resetButton = document.querySelector('.reset');
+const resultMessage = document.querySelector('.result');
 
 
 var compChoiceResult;
 var userChoiceResult;
 
-var setRoundsQuantityPrompt = prompt('How many rounds you wanna play?', '');
+var setRoundsQuantityPrompt = prompt('How many rounds do you wanna play?', '');
 var setRoundsQuantity = parseInt(setRoundsQuantityPrompt);
 
 
@@ -57,6 +58,9 @@ function newGame() {
   compScore = 0;
   compScore_span.innerHTML = compScore;
   myScore_span.innerHTML = myScore;
+  movements.innerHTML = 'Make your move';
+  resultMessage.innerHTML = '';
+  resultMessage.classList.remove('win', 'lose')
 };
 
 
@@ -75,19 +79,21 @@ for (var i = 0; i < items.length; i++) {
     }, 1000);
     playedRoundsQuantity++;
 
-  } else {
+    } if (playedRoundsQuantity >= setRoundsQuantity) {
       switch (true) {
         case (myScore < compScore):
-          alert('YOU LOSE! Try again.');
-          newGame();
+          resultMessage.innerHTML = 'YOU LOSE! Try again.';
+          resultMessage.classList.add('lose');
+          setTimeout(newGame, 2000);
         break;
         case (myScore > compScore):
-          alert('YOU WIN! Congratz!');
-          newGame();
+          resultMessage.innerHTML = 'YOU WIN! Congrats!';
+          resultMessage.classList.add('win');
+          setTimeout(newGame, 2000);
         break;
         case (myScore === compScore):
-          alert('ITS A DRAW! Try again.');
-          newGame();
+          resultMessage.innerHTML = 'ITS A DRAW! Try again.';
+          setTimeout(newGame, 2000);
         break;
       }
     };
