@@ -1,0 +1,87 @@
+$user: #d4b73f
+$comp: #3f7bd4
+
+
+body
+  padding: 0
+  margin: 0
+  font-family: sans-serif
+  color: #a3a3a3
+  background-color: #29292b
+
+.app
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+  flex-direction: column
+
+.title
+  text-align: center
+  font-weight: 400
+  margin-bottom: 40px
+
+.score
+  background-color: #121217
+  padding: 20px 40px
+  border-radius: 5px
+  font-size: 60px
+  position: relative
+  .tip
+    color: #121217
+    font-weight: 600
+    font-size: 20px
+    padding: 2px 10px
+    width: 50px
+    text-align: center
+    border-radius: 4px
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    &.tip__user
+      left: -27%
+      background-color: $user
+    &.tip__comp
+      right: -27%
+      background-color: $comp
+
+.movements
+  font-size: 20px
+  span
+    font-weight: 600
+  .user-choice
+    color: $user
+  .comp-choice
+    color: $comp
+  .lost
+    color: #a52215
+  .win
+    color: #169c1a
+
+.reset
+  border: none
+  background-color: #121217
+  color: #a3a3a3
+  padding: 8px 15px
+  font-size: 14px
+  border-radius: 4px
+  outline: none
+  cursor: pointer
+  line-height: 1
+
+.items
+  margin-top: 100px
+  display: flex
+  justify-content: space-around
+  align-items: center
+  width: 100%
+  max-width: 80%
+  .item
+    max-width: 150px
+    width: 100%
+    cursor: pointer
+    transition: .3s
+    &.active
+      transform: rotate(15deg)
+      // max-width: 250px
+
