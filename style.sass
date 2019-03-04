@@ -1,20 +1,27 @@
 $user: #d4b73f
 $comp: #3f7bd4
+$red: #a52215
+$green: #169c1a
+$grey: #a3a3a3
 
 
 body
   padding: 0
   margin: 0
   font-family: sans-serif
-  color: #a3a3a3
+  color: $grey
   background-color: #29292b
 
 .app
   display: flex
   align-items: center
   justify-content: center
-  height: 100vh
+  height: 95vh
   flex-direction: column
+  max-width: 1300px
+  margin: auto
+  padding: 20px
+  overflow: hidden
 
 .title
   text-align: center
@@ -54,20 +61,17 @@ body
   .comp-choice
     color: $comp
   .lost
-    color: #a52215
+    color: $red
   .win
-    color: #169c1a
+    color: $green
 
 .reset
-  border: none
   background-color: #121217
-  color: #a3a3a3
+  color: $grey
   padding: 8px 15px
   font-size: 14px
   border-radius: 4px
-  outline: none
-  cursor: pointer
-  line-height: 1
+  text-decoration: none
 
 .items
   margin-top: 100px
@@ -80,8 +84,56 @@ body
     max-width: 150px
     width: 100%
     cursor: pointer
+    position: relative
     transition: .3s
     &.active
       transform: rotate(15deg)
-      // max-width: 250px
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      margin: auto
+      background: #000
+      width: 100%
+      height: 100%
 
+.result
+  position: absolute
+  font-size: 140px
+  font-weight: 700
+  color: $grey
+  text-transform: uppercase
+  z-index: 99
+  text-align: center
+  left: 0
+  right: 0
+  margin: auto
+  background-color: #000000d4
+  &.win
+    color: $green
+  &.lose
+    color: $red
+
+@media (max-width: 788px)
+  .movements
+    font-size: 16px
+  .items
+    justify-content: space-between
+    max-width: 100%
+    .item
+      max-width: 100px
+  .result
+    font-size: 20px
+    
+
+@media (max-width: 480px)
+  .title
+    margin-bottom: 30px
+    font-size: 25px
+  .score
+    padding: 10px 40px
+  .items .item
+    max-width: 80px

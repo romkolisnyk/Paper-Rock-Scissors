@@ -16,11 +16,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: 95vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 1300px;
+  margin: auto;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .title {
@@ -86,15 +90,12 @@ body {
 }
 
 .reset {
-  border: none;
   background-color: #121217;
   color: #a3a3a3;
   padding: 8px 15px;
   font-size: 14px;
   border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  line-height: 1;
+  text-decoration: none;
 }
 
 .items {
@@ -115,6 +116,7 @@ body {
   max-width: 150px;
   width: 100%;
   cursor: pointer;
+  position: relative;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -122,5 +124,71 @@ body {
 .items .item.active {
   -webkit-transform: rotate(15deg);
           transform: rotate(15deg);
+}
+
+.items .item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: #000;
+  width: 100%;
+  height: 100%;
+}
+
+.result {
+  position: absolute;
+  font-size: 140px;
+  font-weight: 700;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  z-index: 99;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #000000d4;
+}
+
+.result.win {
+  color: #169c1a;
+}
+
+.result.lose {
+  color: #a52215;
+}
+
+@media (max-width: 788px) {
+  .movements {
+    font-size: 16px;
+  }
+  .items {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    max-width: 100%;
+  }
+  .items .item {
+    max-width: 100px;
+  }
+  .result {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
+  .score {
+    padding: 10px 40px;
+  }
+  .items .item {
+    max-width: 80px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
